@@ -58,11 +58,11 @@ class BaselineRagRetrieverTool(Tool):
     load_dotenv(override=True) # take environment variables from .env.
 
     # Variables not used here do not need to be updated in your .env file
-    endpoint = "https://XXXXXX.search.windows.net"
-    key_credential = "XXXXX"
+    endpoint = os.getenv("AZURE_SEARCH_ENDPOINT")
+    key_credential = os.getenv("AZURE_SEARCH_KEY")
     index_name = "baseline-rag-index01"
-    azure_openai_endpoint = "https://XXXX.openai.azure.com/"
-    azure_openai_key = "XXXX"
+    azure_openai_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    azure_openai_key = os.getenv("AZURE_OPENAI_KEY")
     azure_openai_embedding_deployment = "text-embedding-ada-002"
     azure_openai_api_version = "2024-02-15-preview"
 

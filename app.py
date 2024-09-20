@@ -319,10 +319,10 @@ async def baseline_rag_search(prompt: str):
                                 get_bearer_token_provider)
     from openai import AzureOpenAI
 
-    endpoint = os.getenv("ENDPOINT_URL", "https://XXXXX.openai.azure.com/")
+    endpoint = os.getenv("ENDPOINT_URL")
     deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4o")
-    search_endpoint = os.getenv("SEARCH_ENDPOINT", "https://XXXXX.search.windows.net")
-    search_key = os.getenv("SEARCH_KEY", "XXXXX")
+    search_endpoint = os.getenv("SEARCH_ENDPOINT")
+    search_key = os.getenv("SEARCH_KEY")
     search_index = os.getenv("SEARCH_INDEX_NAME", "baseline-rag-index01")
 
 
