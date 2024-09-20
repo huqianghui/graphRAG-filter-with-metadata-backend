@@ -1,0 +1,96 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into Chinese, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+text:
+# 控制功能
+1. 漏电保护
+本机控制系统具有漏电保护功能。
+------------------------
+output:
+("entity"{tuple_delimiter}控制功能{tuple_delimiter}漏电保护{tuple_delimiter}本机控制系统具有漏电保护功能。)
+("entity"{tuple_delimiter}漏电保护{tuple_delimiter}漏电保护{tuple_delimiter}本机控制系统具有漏电保护功能。)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+text:
+度,开机后显示工作模式;第一次 上电开机,默认智能变频模式
+点亮,压缩机启动后 点亮,出厂设定水温默认
+50℃,水温设置范围35℃~80℃。
+B.超级节能
+操作该键热水器进入最省电运行状态,开机状态下按“超级节能”键,图标(点 亮,再按一次则退出超级节能模式,图标 Q
+◎灭(此时回到智能变频模式,
+图标点  
+进入预约1模式时, 显示当前时间,再按“时钟”键小时位闪烁,按 “+”、“-”键调节小时,再按“时钟”键分钟位闪烁,按“+”、“-”键调节分钟。 确认设定时间:闪烁6s无操作或按“时钟”键则确认此设定时间,同时“时间显示”转 为常亮显示,显示当前时钟。
+1 常亮,
+进入预约2模式时,
+1 熄灭,2 点亮,时间及温度设置同预约1。
+进入预约
+------------------------
+output:
+("entity"{tuple_delimiter}智能变频模式{tuple_delimiter}功能{tuple_delimiter}智能变频模式是热水器的默认工作模式，提供高效的温度控制)
+{record_delimiter}
+("entity"{tuple_delimiter}超级节能模式{tuple_delimiter}功能{tuple_delimiter}超级节能模式是热水器的省电运行状态，通过按键激活或退出)
+{record_delimiter}
+("entity"{tuple_delimiter}预约1模式{tuple_delimiter}功能{tuple_delimiter}预约1模式允许用户设置特定时间和温度，显示当前时间并通过按键调节)
+{record_delimiter}
+("entity"{tuple_delimiter}预约2模式{tuple_delimiter}功能{tuple_delimiter}预约2模式与预约1模式类似，允许用户设置时间和温度)
+{record_delimiter}
+("entity"{tuple_delimiter}压缩机{tuple_delimiter}设备{tuple_delimiter}压缩机在热水器启动后点亮，负责温度调节)
+{record_delimiter}
+("entity"{tuple_delimiter}水温设置{tuple_delimiter}功能{tuple_delimiter}水温设置范围为35℃到80℃，出厂默认设定为50℃)
+{record_delimiter}
+("relationship"{tuple_delimiter}智能变频模式{tuple_delimiter}超级节能模式{tuple_delimiter}超级节能模式可以从智能变频模式切换，提供不同的能效状态{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}预约1模式{tuple_delimiter}预约2模式{tuple_delimiter}预约2模式的时间和温度设置与预约1模式相同{tuple_delimiter}6)
+{completion_delimiter}
+#############################
+
+Example 3:
+
+text:
+# 控制功能
+1. 漏电保护
+本机控制系统具有漏电保护功能。
+------------------------
+output:
+("entity"{tuple_delimiter}控制功能{tuple_delimiter}漏电保护{tuple_delimiter}本机控制系统具有漏电保护功能。)
+("entity"{tuple_delimiter}漏电保护{tuple_delimiter}漏电保护{tuple_delimiter}本机控制系统具有漏电保护功能。)
+{completion_delimiter}
+#############################
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:

@@ -1,0 +1,1076 @@
+13:23:39,898 graphrag.config.read_dotenv INFO Loading pipeline .env file
+13:23:39,902 graphrag.index.cli INFO using default configuration: {
+    "llm": {
+        "api_key": "REDACTED, length 32",
+        "type": "azure_openai_chat",
+        "model": "gpt-4o",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://openai-hu-non-product-test.openai.azure.com/",
+        "api_version": "2024-02-15-preview",
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": "gpt-4o",
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 5
+    },
+    "async_mode": "threaded",
+    "root_dir": "./introduction_merged_graphrag",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/${timestamp}/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/${timestamp}/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "/Users/huqianghui/Downloads/graphrag-local/introduction_merged_graphrag/input_merged",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.md$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": true,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "REDACTED, length 32",
+            "type": "azure_openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://openai-hu-non-product-test.openai.azure.com/",
+            "api_version": "2024-02-15-preview",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "text-embedding-3-small",
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 5
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 120000,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": "o200k_base"
+    },
+    "snapshots": {
+        "graphml": true,
+        "raw_entities": true,
+        "top_level_nodes": true
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 32",
+            "type": "azure_openai_chat",
+            "model": "gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://openai-hu-non-product-test.openai.azure.com/",
+            "api_version": "2024-02-15-preview",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "gpt-4o",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 5
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/tuned-prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 2,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "REDACTED, length 32",
+            "type": "azure_openai_chat",
+            "model": "gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://openai-hu-non-product-test.openai.azure.com/",
+            "api_version": "2024-02-15-preview",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "gpt-4o",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 5
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/tuned-prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "REDACTED, length 32",
+            "type": "azure_openai_chat",
+            "model": "gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://openai-hu-non-product-test.openai.azure.com/",
+            "api_version": "2024-02-15-preview",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "gpt-4o",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 5
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/tuned-prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 32",
+            "type": "azure_openai_chat",
+            "model": "gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://openai-hu-non-product-test.openai.azure.com/",
+            "api_version": "2024-02-15-preview",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "gpt-4o",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 5
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": "o200k_base"
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": true
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "o200k_base",
+    "skip_workflows": []
+}
+13:23:39,904 graphrag.index.create_pipeline_config INFO skipping workflows 
+13:23:39,915 graphrag.index.run INFO Running pipeline
+13:23:39,916 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at introduction_merged_graphrag/output/20240909-132339/artifacts
+13:23:39,917 graphrag.index.input.load_input INFO loading input from root_dir=/Users/huqianghui/Downloads/graphrag-local/introduction_merged_graphrag/input_merged
+13:23:39,917 graphrag.index.input.load_input INFO using file storage for input
+13:23:39,918 graphrag.index.storage.file_pipeline_storage INFO search /Users/huqianghui/Downloads/graphrag-local/introduction_merged_graphrag/input_merged for files matching .*\.md$
+13:23:39,920 graphrag.index.input.text INFO found text files from /Users/huqianghui/Downloads/graphrag-local/introduction_merged_graphrag/input_merged, found [('v1-chunks-1header/GK0GV0001说明书v1-18.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-08.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-19.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-09.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-12.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-02.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-22.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-16.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-06.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-17.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-07.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-13.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-03.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-20.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-14.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-04.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-10.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-00.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-11.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-01.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-21.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-15.md', {}), ('v1-chunks-1header/GK0GV0001说明书v1-05.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-02.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-12.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-06.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-16.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-22.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-07.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-17.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-03.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-13.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-08.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-18.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-09.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-19.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-04.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-14.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-20.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-00.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-10.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-01.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-11.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-05.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-15.md', {}), ('v2-chunks-1header/GK0GV0001说明书v2-21.md', {})]
+13:23:39,946 graphrag.index.input.text INFO Found 46 files, loading 46
+13:23:39,948 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+13:23:39,948 graphrag.index.run INFO Final # of rows loaded: 46
+13:23:40,27 graphrag.index.run INFO Running workflow: create_base_text_units...
+13:23:40,27 graphrag.index.run INFO dependencies for create_base_text_units: []
+13:23:40,29 datashaper.workflow.workflow INFO executing verb orderby
+13:23:40,30 datashaper.workflow.workflow INFO executing verb zip
+13:23:40,31 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:23:40,34 datashaper.workflow.workflow INFO executing verb chunk
+13:23:40,354 datashaper.workflow.workflow INFO executing verb select
+13:23:40,356 datashaper.workflow.workflow INFO executing verb unroll
+13:23:40,358 datashaper.workflow.workflow INFO executing verb rename
+13:23:40,360 datashaper.workflow.workflow INFO executing verb genid
+13:23:40,362 datashaper.workflow.workflow INFO executing verb unzip
+13:23:40,364 datashaper.workflow.workflow INFO executing verb copy
+13:23:40,366 datashaper.workflow.workflow INFO executing verb filter
+13:23:40,372 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+13:23:40,501 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+13:23:40,501 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+13:23:40,501 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+13:23:40,509 datashaper.workflow.workflow INFO executing verb entity_extract
+13:23:40,512 graphrag.llm.openai.create_openai_client INFO Creating Azure OpenAI client api_base=https://openai-hu-non-product-test.openai.azure.com, deployment_name=gpt-4o
+13:23:40,533 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for gpt-4o: TPM=0, RPM=0
+13:23:40,533 graphrag.index.llm.load_llm INFO create concurrency limiter for gpt-4o: 25
+13:23:45,910 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:45,913 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.283000000003085. input_tokens=2354, output_tokens=605
+13:23:46,431 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:46,435 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.794000000001688. input_tokens=2435, output_tokens=730
+13:23:46,685 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:46,689 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 6.052000000003318. input_tokens=2853, output_tokens=558
+13:23:47,239 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:47,243 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 6.601999999998952. input_tokens=2201, output_tokens=535
+13:23:48,777 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:48,778 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 2.8620000000009895. input_tokens=34, output_tokens=320
+13:23:49,237 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:49,240 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.46000000000640284. input_tokens=30, output_tokens=1
+13:23:49,906 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:49,910 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.470000000001164. input_tokens=34, output_tokens=457
+13:23:49,911 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:49,913 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.220000000001164. input_tokens=34, output_tokens=443
+13:23:50,98 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:50,99 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 2.852000000006228. input_tokens=34, output_tokens=300
+13:23:50,426 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:50,427 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5120000000024447. input_tokens=30, output_tokens=1
+13:23:50,441 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:50,442 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5169999999998254. input_tokens=30, output_tokens=1
+13:23:51,133 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:51,135 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 1.0340000000069267. input_tokens=30, output_tokens=1
+13:23:51,162 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:51,163 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 1.919000000001688. input_tokens=34, output_tokens=166
+13:23:52,417 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:52,419 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 1.9750000000058208. input_tokens=34, output_tokens=168
+13:23:52,618 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:52,620 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 11.981999999996333. input_tokens=4731, output_tokens=1359
+13:23:55,639 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:55,643 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.019000000000233. input_tokens=34, output_tokens=379
+13:23:55,670 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:55,671 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 3.24199999999837. input_tokens=1984, output_tokens=416
+13:23:56,661 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:56,663 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 1.0169999999998254. input_tokens=30, output_tokens=1
+13:23:56,680 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:56,681 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 6.248999999996158. input_tokens=34, output_tokens=807
+13:23:58,198 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:58,201 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 7.031999999999243. input_tokens=3650, output_tokens=747
+13:23:58,548 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:58,549 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 2.875. input_tokens=34, output_tokens=210
+13:23:58,990 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:58,992 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.44200000000273576. input_tokens=30, output_tokens=1
+13:23:59,307 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:23:59,309 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 8.150000000001455. input_tokens=7070, output_tokens=933
+13:24:01,246 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:01,251 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.0459999999948195. input_tokens=34, output_tokens=297
+13:24:01,535 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:01,536 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 2.2259999999951106. input_tokens=34, output_tokens=251
+13:24:01,737 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:01,739 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.4850000000005821. input_tokens=30, output_tokens=1
+13:24:02,118 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:02,119 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5819999999948777. input_tokens=30, output_tokens=1
+13:24:02,887 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:02,890 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 6.197999999996682. input_tokens=2441, output_tokens=903
+13:24:03,932 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:03,936 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 2.194000000003143. input_tokens=34, output_tokens=248
+13:24:04,158 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:04,162 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.15400000000227. input_tokens=2273, output_tokens=752
+13:24:05,481 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:05,484 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 3.3620000000009895. input_tokens=34, output_tokens=349
+13:24:05,823 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:05,825 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.657999999995809. input_tokens=34, output_tokens=195
+13:24:06,390 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:06,393 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5649999999950523. input_tokens=30, output_tokens=1
+13:24:08,130 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:08,131 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.177000000003318. input_tokens=2788, output_tokens=526
+13:24:08,791 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:08,797 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 12.129000000000815. input_tokens=34, output_tokens=1583
+13:24:08,980 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:08,981 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 3.480999999999767. input_tokens=2061, output_tokens=374
+13:24:09,156 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:09,160 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 6.263999999995576. input_tokens=34, output_tokens=931
+13:24:09,671 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:09,673 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5100000000020373. input_tokens=30, output_tokens=1
+13:24:10,487 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:10,489 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.506999999997788. input_tokens=34, output_tokens=142
+13:24:10,951 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:10,952 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.4599999999991269. input_tokens=30, output_tokens=1
+13:24:11,305 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:11,306 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.898000000001048. input_tokens=1684, output_tokens=637
+13:24:12,842 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:12,843 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.5339999999996508. input_tokens=34, output_tokens=116
+13:24:13,283 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:13,284 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.43999999999505235. input_tokens=30, output_tokens=1
+13:24:15,709 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:15,710 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 6.033000000003085. input_tokens=34, output_tokens=714
+13:24:16,197 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:16,199 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.238000000004831. input_tokens=4034, output_tokens=672
+13:24:17,757 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:17,761 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 9.626000000003842. input_tokens=34, output_tokens=1410
+13:24:18,67 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:18,70 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.775999999998021. input_tokens=4687, output_tokens=719
+13:24:18,560 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:18,563 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.7980000000025029. input_tokens=30, output_tokens=1
+13:24:19,908 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:19,912 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.7079999999987194. input_tokens=34, output_tokens=453
+13:24:20,9 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:20,13 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.290999999997439. input_tokens=2789, output_tokens=507
+13:24:20,870 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:20,873 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.955999999998312. input_tokens=30, output_tokens=1
+13:24:22,467 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:22,468 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.394000000000233. input_tokens=34, output_tokens=472
+13:24:23,85 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:23,86 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.6160000000018044. input_tokens=30, output_tokens=1
+13:24:23,124 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:23,125 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 2.2479999999995925. input_tokens=34, output_tokens=227
+13:24:24,731 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:24,735 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 6.150000000001455. input_tokens=7478, output_tokens=778
+13:24:25,728 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:25,729 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 2.638999999995576. input_tokens=34, output_tokens=320
+13:24:27,515 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:27,529 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.38300000000163. input_tokens=1843, output_tokens=662
+13:24:28,861 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:28,863 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.124000000003434. input_tokens=34, output_tokens=437
+13:24:29,468 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:29,470 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.6039999999993597. input_tokens=30, output_tokens=1
+13:24:29,839 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:29,840 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.105000000003201. input_tokens=1921, output_tokens=607
+13:24:30,241 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:30,244 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 2.713000000003376. input_tokens=34, output_tokens=401
+13:24:30,684 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:30,686 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.4389999999984866. input_tokens=30, output_tokens=1
+13:24:31,256 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:31,258 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 1.7370000000009895. input_tokens=34, output_tokens=172
+13:24:31,583 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:31,584 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.743000000002212. input_tokens=34, output_tokens=168
+13:24:32,33 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:32,37 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.4510000000009313. input_tokens=30, output_tokens=1
+13:24:32,593 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:32,595 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 1.9060000000026776. input_tokens=34, output_tokens=194
+13:24:34,347 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:34,347 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 2.2889999999970314. input_tokens=34, output_tokens=238
+13:24:36,974 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:36,977 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.705000000001746. input_tokens=5817, output_tokens=618
+13:24:37,353 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:37,356 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.754000000000815. input_tokens=1577, output_tokens=588
+13:24:37,835 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:37,842 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.025000000001455. input_tokens=12515, output_tokens=3808
+13:24:38,719 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:38,722 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 18.703999999997905. input_tokens=34, output_tokens=1772
+13:24:38,977 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:38,981 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.623999999996158. input_tokens=4211, output_tokens=681
+13:24:39,8 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:39,9 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.6489999999976135. input_tokens=34, output_tokens=224
+13:24:39,238 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:39,240 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5160000000032596. input_tokens=30, output_tokens=1
+13:24:39,443 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:39,444 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.4330000000045402. input_tokens=30, output_tokens=1
+13:24:39,971 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:39,974 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 2.993000000002212. input_tokens=34, output_tokens=360
+13:24:40,595 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:40,598 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.621000000006461. input_tokens=30, output_tokens=1
+13:24:41,84 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:41,88 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.2409999999945285. input_tokens=34, output_tokens=311
+13:24:41,365 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:41,368 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 1.9210000000020955. input_tokens=34, output_tokens=235
+13:24:41,887 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:41,890 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.7980000000025029. input_tokens=30, output_tokens=1
+13:24:43,563 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:43,566 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 2.963999999999942. input_tokens=34, output_tokens=361
+13:24:43,672 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:43,674 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.690000000002328. input_tokens=34, output_tokens=678
+13:24:44,187 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:44,190 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.5119999999951688. input_tokens=30, output_tokens=1
+13:24:45,543 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:45,546 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 4.161000000000058. input_tokens=2995, output_tokens=518
+13:24:45,814 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:45,815 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 3.9219999999986612. input_tokens=34, output_tokens=255
+13:24:47,619 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:47,623 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 3.430000000000291. input_tokens=34, output_tokens=378
+13:24:49,93 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:49,96 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 3.5460000000020955. input_tokens=34, output_tokens=388
+13:24:49,536 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:49,540 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 10.296000000002095. input_tokens=34, output_tokens=1423
+13:24:49,575 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:49,576 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.47699999999895226. input_tokens=30, output_tokens=1
+13:24:52,368 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:52,373 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 8.788000000000466. input_tokens=2858, output_tokens=1116
+13:24:54,109 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:54,115 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 4.536000000000058. input_tokens=34, output_tokens=544
+13:24:57,50 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:57,52 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 4.674999999995634. input_tokens=34, output_tokens=570
+13:24:57,513 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:57,515 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.46199999999953434. input_tokens=30, output_tokens=1
+13:24:59,129 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:24:59,133 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 13.296000000002095. input_tokens=8934, output_tokens=1603
+13:25:09,305 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:09,309 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 10.173000000002503. input_tokens=34, output_tokens=1274
+13:25:10,15 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:10,17 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-loopcheck-0" with 0 retries took 0.7049999999944703. input_tokens=30, output_tokens=1
+13:25:14,789 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:14,792 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-1" with 0 retries took 4.77100000000064. input_tokens=34, output_tokens=580
+13:25:14,816 datashaper.workflow.workflow INFO executing verb snapshot
+13:25:14,829 datashaper.workflow.workflow INFO executing verb merge_graphs
+13:25:14,859 datashaper.workflow.workflow INFO executing verb snapshot_rows
+13:25:14,862 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+13:25:14,954 graphrag.index.run INFO Running workflow: create_summarized_entities...
+13:25:14,954 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+13:25:14,954 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+13:25:14,961 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+13:25:15,890 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:15,892 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9170000000012806. input_tokens=314, output_tokens=109
+13:25:16,725 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:16,728 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.7490000000034343. input_tokens=284, output_tokens=33
+13:25:16,794 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:16,795 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8870000000024447. input_tokens=347, output_tokens=101
+13:25:17,155 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:17,157 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.1789999999964493. input_tokens=373, output_tokens=101
+13:25:17,462 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:17,465 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6659999999974389. input_tokens=299, output_tokens=39
+13:25:17,466 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:17,467 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7240000000019791. input_tokens=299, output_tokens=63
+13:25:17,478 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:17,479 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.5010000000038417. input_tokens=447, output_tokens=161
+13:25:17,716 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:17,717 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 2.7370000000009895. input_tokens=494, output_tokens=196
+13:25:17,771 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:17,772 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5999999999985448. input_tokens=294, output_tokens=35
+13:25:18,119 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,121 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6369999999951688. input_tokens=304, output_tokens=39
+13:25:18,122 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,124 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6440000000002328. input_tokens=288, output_tokens=41
+13:25:18,492 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,495 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.006999999997788. input_tokens=393, output_tokens=121
+13:25:18,539 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,540 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7669999999998254. input_tokens=302, output_tokens=60
+13:25:18,581 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,582 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8539999999993597. input_tokens=385, output_tokens=71
+13:25:18,820 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,823 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6860000000015134. input_tokens=348, output_tokens=54
+13:25:18,949 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:18,951 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8099999999976717. input_tokens=369, output_tokens=53
+13:25:19,146 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,147 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6390000000028522. input_tokens=289, output_tokens=44
+13:25:19,160 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,161 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5750000000043656. input_tokens=290, output_tokens=38
+13:25:19,293 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,295 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.75. input_tokens=291, output_tokens=47
+13:25:19,650 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,653 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8150000000023283. input_tokens=341, output_tokens=83
+13:25:19,839 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,840 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6779999999998836. input_tokens=300, output_tokens=46
+13:25:19,890 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,890 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9259999999994761. input_tokens=294, output_tokens=47
+13:25:19,904 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,904 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5959999999977299. input_tokens=284, output_tokens=34
+13:25:19,922 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:19,923 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7660000000032596. input_tokens=343, output_tokens=65
+13:25:20,495 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:20,497 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6460000000006403. input_tokens=334, output_tokens=50
+13:25:20,699 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:20,702 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.809000000001106. input_tokens=326, output_tokens=55
+13:25:20,778 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:20,780 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.1120000000009895. input_tokens=367, output_tokens=140
+13:25:20,882 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:20,885 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9790000000066357. input_tokens=388, output_tokens=97
+13:25:20,959 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:20,961 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0370000000039. input_tokens=318, output_tokens=79
+13:25:21,305 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:21,307 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5239999999976135. input_tokens=313, output_tokens=24
+13:25:21,534 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:21,537 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0250000000014552. input_tokens=352, output_tokens=47
+13:25:21,583 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:21,584 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6189999999987776. input_tokens=302, output_tokens=36
+13:25:21,639 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:21,640 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7409999999945285. input_tokens=325, output_tokens=32
+13:25:21,825 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:21,828 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.114000000001397. input_tokens=355, output_tokens=72
+13:25:22,5 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:22,6 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6860000000015134. input_tokens=279, output_tokens=43
+13:25:22,187 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:22,188 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6370000000024447. input_tokens=301, output_tokens=46
+13:25:22,301 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:22,302 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6500000000014552. input_tokens=285, output_tokens=41
+13:25:22,473 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:22,476 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6309999999939464. input_tokens=276, output_tokens=34
+13:25:22,828 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:22,830 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6319999999977881. input_tokens=266, output_tokens=30
+13:25:22,920 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:22,922 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.3340000000025611. input_tokens=289, output_tokens=31
+13:25:23,11 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,14 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0. input_tokens=377, output_tokens=99
+13:25:23,109 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,111 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6189999999987776. input_tokens=263, output_tokens=20
+13:25:23,205 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,208 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8949999999967986. input_tokens=351, output_tokens=82
+13:25:23,519 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,520 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5950000000011642. input_tokens=301, output_tokens=34
+13:25:23,650 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,652 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8070000000006985. input_tokens=310, output_tokens=64
+13:25:23,762 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,765 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7370000000009895. input_tokens=299, output_tokens=47
+13:25:23,830 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,831 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6110000000044238. input_tokens=279, output_tokens=25
+13:25:23,849 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:23,850 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7339999999967404. input_tokens=284, output_tokens=34
+13:25:24,162 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:24,163 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6330000000016298. input_tokens=288, output_tokens=30
+13:25:24,290 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:24,292 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.625. input_tokens=305, output_tokens=31
+13:25:24,431 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:24,432 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6549999999988358. input_tokens=316, output_tokens=42
+13:25:24,446 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:24,446 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6120000000009895. input_tokens=285, output_tokens=29
+13:25:24,450 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:24,451 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5980000000054133. input_tokens=278, output_tokens=24
+13:25:24,899 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:24,903 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5990000000019791. input_tokens=289, output_tokens=32
+13:25:25,31 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,34 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5819999999948777. input_tokens=300, output_tokens=35
+13:25:25,62 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,63 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6149999999979627. input_tokens=297, output_tokens=36
+13:25:25,198 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,201 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0280000000057044. input_tokens=314, output_tokens=98
+13:25:25,594 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,597 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.680000000000291. input_tokens=286, output_tokens=53
+13:25:25,844 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,847 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7970000000059372. input_tokens=312, output_tokens=61
+13:25:25,954 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,956 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7419999999983702. input_tokens=288, output_tokens=44
+13:25:25,988 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:25,989 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9199999999982538. input_tokens=287, output_tokens=52
+13:25:26,560 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:26,563 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.9510000000009313. input_tokens=324, output_tokens=87
+13:25:26,665 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:26,667 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6889999999984866. input_tokens=313, output_tokens=56
+13:25:26,887 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:26,889 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8980000000010477. input_tokens=341, output_tokens=73
+13:25:26,934 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:26,935 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.0740000000005239. input_tokens=315, output_tokens=101
+13:25:27,315 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:27,317 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.738999999994121. input_tokens=324, output_tokens=51
+13:25:27,482 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:27,484 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5780000000013388. input_tokens=311, output_tokens=33
+13:25:27,515 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:27,516 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5789999999979045. input_tokens=299, output_tokens=31
+13:25:27,834 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:27,836 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5080000000016298. input_tokens=297, output_tokens=15
+13:25:27,966 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:27,969 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.47000000000116415. input_tokens=294, output_tokens=10
+13:25:28,187 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,189 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.669000000001688. input_tokens=309, output_tokens=31
+13:25:28,282 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,283 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 3.8439999999973224. input_tokens=305, output_tokens=35
+13:25:28,314 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,314 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 1.6329999999943539. input_tokens=302, output_tokens=19
+13:25:28,431 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,432 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5790000000051805. input_tokens=302, output_tokens=29
+13:25:28,792 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,794 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5090000000054715. input_tokens=300, output_tokens=21
+13:25:28,794 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,795 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.8140000000057626. input_tokens=301, output_tokens=79
+13:25:28,871 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:28,872 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6679999999978463. input_tokens=307, output_tokens=46
+13:25:29,25 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,27 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7019999999974971. input_tokens=299, output_tokens=58
+13:25:29,82 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,82 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6399999999994179. input_tokens=298, output_tokens=34
+13:25:29,303 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,305 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.4959999999991851. input_tokens=307, output_tokens=24
+13:25:29,342 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,343 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5299999999988358. input_tokens=317, output_tokens=29
+13:25:29,554 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,558 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.6829999999972642. input_tokens=309, output_tokens=61
+13:25:29,638 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,639 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5930000000007567. input_tokens=321, output_tokens=37
+13:25:29,832 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,835 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7470000000030268. input_tokens=333, output_tokens=70
+13:25:29,894 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:29,895 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.5500000000029104. input_tokens=300, output_tokens=18
+13:25:30,101 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:30,103 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "summarize" with 0 retries took 0.7850000000034925. input_tokens=331, output_tokens=53
+13:25:30,139 datashaper.workflow.workflow INFO executing verb snapshot_rows
+13:25:30,143 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+13:25:30,237 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+13:25:30,237 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+13:25:30,237 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+13:25:30,245 datashaper.workflow.workflow INFO executing verb cluster_graph
+13:25:30,311 datashaper.workflow.workflow INFO executing verb snapshot_rows
+13:25:30,317 datashaper.workflow.workflow INFO executing verb embed_graph
+13:25:30,333 root INFO Starting preprocessing of transition probabilities on graph with 203 nodes and 243 edges
+13:25:30,337 root INFO Starting at time 1725859530.337777
+13:25:30,337 root INFO Beginning preprocessing of transition probabilities for 203 vertices
+13:25:30,337 root INFO Completed 1 / 203 vertices
+13:25:30,338 root INFO Completed 21 / 203 vertices
+13:25:30,338 root INFO Completed 41 / 203 vertices
+13:25:30,338 root INFO Completed 61 / 203 vertices
+13:25:30,338 root INFO Completed 81 / 203 vertices
+13:25:30,338 root INFO Completed 101 / 203 vertices
+13:25:30,338 root INFO Completed 121 / 203 vertices
+13:25:30,338 root INFO Completed 141 / 203 vertices
+13:25:30,338 root INFO Completed 161 / 203 vertices
+13:25:30,338 root INFO Completed 181 / 203 vertices
+13:25:30,338 root INFO Completed 201 / 203 vertices
+13:25:30,338 root INFO Completed preprocessing of transition probabilities for vertices
+13:25:30,338 root INFO Beginning preprocessing of transition probabilities for 243 edges
+13:25:30,338 root INFO Completed 1 / 243 edges
+13:25:30,339 root INFO Completed 25 / 243 edges
+13:25:30,339 root INFO Completed 49 / 243 edges
+13:25:30,340 root INFO Completed 73 / 243 edges
+13:25:30,340 root INFO Completed 97 / 243 edges
+13:25:30,341 root INFO Completed 121 / 243 edges
+13:25:30,341 root INFO Completed 145 / 243 edges
+13:25:30,342 root INFO Completed 169 / 243 edges
+13:25:30,342 root INFO Completed 193 / 243 edges
+13:25:30,343 root INFO Completed 217 / 243 edges
+13:25:30,343 root INFO Completed 241 / 243 edges
+13:25:30,343 root INFO Completed preprocessing of transition probabilities for edges
+13:25:30,343 root INFO Simulating walks on graph at time 1725859530.3433259
+13:25:30,343 root INFO Walk iteration: 1/10
+13:25:30,350 root INFO Walk iteration: 2/10
+13:25:30,355 root INFO Walk iteration: 3/10
+13:25:30,360 root INFO Walk iteration: 4/10
+13:25:30,364 root INFO Walk iteration: 5/10
+13:25:30,369 root INFO Walk iteration: 6/10
+13:25:30,373 root INFO Walk iteration: 7/10
+13:25:30,378 root INFO Walk iteration: 8/10
+13:25:30,382 root INFO Walk iteration: 9/10
+13:25:30,387 root INFO Walk iteration: 10/10
+13:25:30,391 root INFO Learning embeddings at time 1725859530.391712
+13:25:30,393 gensim.models.word2vec INFO collecting all words and their counts
+13:25:30,393 gensim.models.word2vec INFO PROGRESS: at sentence #0, processed 0 words, keeping 0 word types
+13:25:30,394 gensim.models.word2vec INFO collected 203 word types from a corpus of 34280 raw words and 2030 sentences
+13:25:30,394 gensim.models.word2vec INFO Creating a fresh vocabulary
+13:25:30,394 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 retains 203 unique words (100.00% of original 203, drops 0)', 'datetime': '2024-09-09T13:25:30.394975', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'prepare_vocab'}
+13:25:30,395 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 leaves 34280 word corpus (100.00% of original 34280, drops 0)', 'datetime': '2024-09-09T13:25:30.395016', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'prepare_vocab'}
+13:25:30,395 gensim.models.word2vec INFO deleting the raw counts dictionary of 203 items
+13:25:30,395 gensim.models.word2vec INFO sample=0.001 downsamples 85 most-common words
+13:25:30,395 gensim.utils INFO Word2Vec lifecycle event {'msg': 'downsampling leaves estimated 18454.481292377226 word corpus (53.8%% of prior 34280)', 'datetime': '2024-09-09T13:25:30.395398', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'prepare_vocab'}
+13:25:30,396 gensim.models.word2vec INFO estimated required memory for 203 words and 1536 dimensions: 2595964 bytes
+13:25:30,396 gensim.models.word2vec INFO resetting layer weights
+13:25:30,397 gensim.utils INFO Word2Vec lifecycle event {'update': False, 'trim_rule': 'None', 'datetime': '2024-09-09T13:25:30.397679', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'build_vocab'}
+13:25:30,397 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training model with 8 workers on 203 vocabulary and 1536 features, using sg=1 hs=0 sample=0.001 negative=5 window=2 shrink_windows=True', 'datetime': '2024-09-09T13:25:30.397733', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'train'}
+13:25:30,451 gensim.models.word2vec INFO EPOCH 0: training on 34280 raw words (18437 effective words) took 0.1s, 350378 effective words/s
+13:25:30,505 gensim.models.word2vec INFO EPOCH 1: training on 34280 raw words (18522 effective words) took 0.1s, 351645 effective words/s
+13:25:30,559 gensim.models.word2vec INFO EPOCH 2: training on 34280 raw words (18464 effective words) took 0.1s, 355463 effective words/s
+13:25:30,559 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training on 102840 raw words (55423 effective words) took 0.2s, 341878 effective words/s', 'datetime': '2024-09-09T13:25:30.559870', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'train'}
+13:25:30,559 gensim.utils INFO Word2Vec lifecycle event {'params': 'Word2Vec<vocab=203, vector_size=1536, alpha=0.025>', 'datetime': '2024-09-09T13:25:30.559910', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'created'}
+13:25:30,559 root INFO Completed. Ending time is 1725859530.5599842 Elapsed time is -0.22220730781555176
+13:25:30,580 root INFO Starting preprocessing of transition probabilities on graph with 203 nodes and 243 edges
+13:25:30,580 root INFO Starting at time 1725859530.58059
+13:25:30,580 root INFO Beginning preprocessing of transition probabilities for 203 vertices
+13:25:30,580 root INFO Completed 1 / 203 vertices
+13:25:30,580 root INFO Completed 21 / 203 vertices
+13:25:30,580 root INFO Completed 41 / 203 vertices
+13:25:30,580 root INFO Completed 61 / 203 vertices
+13:25:30,580 root INFO Completed 81 / 203 vertices
+13:25:30,580 root INFO Completed 101 / 203 vertices
+13:25:30,581 root INFO Completed 121 / 203 vertices
+13:25:30,581 root INFO Completed 141 / 203 vertices
+13:25:30,581 root INFO Completed 161 / 203 vertices
+13:25:30,581 root INFO Completed 181 / 203 vertices
+13:25:30,581 root INFO Completed 201 / 203 vertices
+13:25:30,581 root INFO Completed preprocessing of transition probabilities for vertices
+13:25:30,581 root INFO Beginning preprocessing of transition probabilities for 243 edges
+13:25:30,581 root INFO Completed 1 / 243 edges
+13:25:30,581 root INFO Completed 25 / 243 edges
+13:25:30,582 root INFO Completed 49 / 243 edges
+13:25:30,582 root INFO Completed 73 / 243 edges
+13:25:30,583 root INFO Completed 97 / 243 edges
+13:25:30,583 root INFO Completed 121 / 243 edges
+13:25:30,584 root INFO Completed 145 / 243 edges
+13:25:30,585 root INFO Completed 169 / 243 edges
+13:25:30,585 root INFO Completed 193 / 243 edges
+13:25:30,585 root INFO Completed 217 / 243 edges
+13:25:30,585 root INFO Completed 241 / 243 edges
+13:25:30,585 root INFO Completed preprocessing of transition probabilities for edges
+13:25:30,585 root INFO Simulating walks on graph at time 1725859530.585678
+13:25:30,585 root INFO Walk iteration: 1/10
+13:25:30,590 root INFO Walk iteration: 2/10
+13:25:30,594 root INFO Walk iteration: 3/10
+13:25:30,598 root INFO Walk iteration: 4/10
+13:25:30,603 root INFO Walk iteration: 5/10
+13:25:30,607 root INFO Walk iteration: 6/10
+13:25:30,611 root INFO Walk iteration: 7/10
+13:25:30,615 root INFO Walk iteration: 8/10
+13:25:30,620 root INFO Walk iteration: 9/10
+13:25:30,624 root INFO Walk iteration: 10/10
+13:25:30,628 root INFO Learning embeddings at time 1725859530.62851
+13:25:30,629 gensim.models.word2vec INFO collecting all words and their counts
+13:25:30,629 gensim.models.word2vec INFO PROGRESS: at sentence #0, processed 0 words, keeping 0 word types
+13:25:30,631 gensim.models.word2vec INFO collected 203 word types from a corpus of 34280 raw words and 2030 sentences
+13:25:30,631 gensim.models.word2vec INFO Creating a fresh vocabulary
+13:25:30,631 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 retains 203 unique words (100.00% of original 203, drops 0)', 'datetime': '2024-09-09T13:25:30.631466', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'prepare_vocab'}
+13:25:30,631 gensim.utils INFO Word2Vec lifecycle event {'msg': 'effective_min_count=0 leaves 34280 word corpus (100.00% of original 34280, drops 0)', 'datetime': '2024-09-09T13:25:30.631491', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'prepare_vocab'}
+13:25:30,631 gensim.models.word2vec INFO deleting the raw counts dictionary of 203 items
+13:25:30,631 gensim.models.word2vec INFO sample=0.001 downsamples 85 most-common words
+13:25:30,631 gensim.utils INFO Word2Vec lifecycle event {'msg': 'downsampling leaves estimated 18454.481292377226 word corpus (53.8%% of prior 34280)', 'datetime': '2024-09-09T13:25:30.631833', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'prepare_vocab'}
+13:25:30,632 gensim.models.word2vec INFO estimated required memory for 203 words and 1536 dimensions: 2595964 bytes
+13:25:30,632 gensim.models.word2vec INFO resetting layer weights
+13:25:30,633 gensim.utils INFO Word2Vec lifecycle event {'update': False, 'trim_rule': 'None', 'datetime': '2024-09-09T13:25:30.633378', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'build_vocab'}
+13:25:30,633 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training model with 8 workers on 203 vocabulary and 1536 features, using sg=1 hs=0 sample=0.001 negative=5 window=2 shrink_windows=True', 'datetime': '2024-09-09T13:25:30.633404', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'train'}
+13:25:30,687 gensim.models.word2vec INFO EPOCH 0: training on 34280 raw words (18470 effective words) took 0.1s, 353899 effective words/s
+13:25:30,739 gensim.models.word2vec INFO EPOCH 1: training on 34280 raw words (18400 effective words) took 0.1s, 355318 effective words/s
+13:25:30,792 gensim.models.word2vec INFO EPOCH 2: training on 34280 raw words (18478 effective words) took 0.1s, 355345 effective words/s
+13:25:30,792 gensim.utils INFO Word2Vec lifecycle event {'msg': 'training on 102840 raw words (55348 effective words) took 0.2s, 347006 effective words/s', 'datetime': '2024-09-09T13:25:30.792914', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'train'}
+13:25:30,792 gensim.utils INFO Word2Vec lifecycle event {'params': 'Word2Vec<vocab=203, vector_size=1536, alpha=0.025>', 'datetime': '2024-09-09T13:25:30.792938', 'gensim': '4.3.3', 'python': '3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]', 'platform': 'macOS-14.6.1-arm64-arm-64bit', 'event': 'created'}
+13:25:30,793 root INFO Completed. Ending time is 1725859530.793003 Elapsed time is -0.21241307258605957
+13:25:30,802 datashaper.workflow.workflow INFO executing verb snapshot_rows
+13:25:30,809 datashaper.workflow.workflow INFO executing verb select
+13:25:30,824 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+13:25:31,15 graphrag.index.run INFO Running workflow: create_final_entities...
+13:25:31,15 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+13:25:31,15 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+13:25:31,39 datashaper.workflow.workflow INFO executing verb unpack_graph
+13:25:31,62 datashaper.workflow.workflow INFO executing verb rename
+13:25:31,65 datashaper.workflow.workflow INFO executing verb select
+13:25:31,70 datashaper.workflow.workflow INFO executing verb dedupe
+13:25:31,74 datashaper.workflow.workflow INFO executing verb rename
+13:25:31,78 datashaper.workflow.workflow INFO executing verb filter
+13:25:31,89 datashaper.workflow.workflow INFO executing verb text_split
+13:25:31,95 datashaper.workflow.workflow INFO executing verb drop
+13:25:31,99 datashaper.workflow.workflow INFO executing verb merge
+13:25:31,123 datashaper.workflow.workflow INFO executing verb text_embed
+13:25:31,125 graphrag.llm.openai.create_openai_client INFO Creating Azure OpenAI client api_base=https://openai-hu-non-product-test.openai.azure.com, deployment_name=text-embedding-3-small
+13:25:31,141 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for text-embedding-3-small: TPM=0, RPM=0
+13:25:31,141 graphrag.index.llm.load_llm INFO create concurrency limiter for text-embedding-3-small: 25
+13:25:31,151 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 382 inputs via 382 snippets using 24 batches. max_batch_size=16, max_tokens=8191
+13:25:32,563 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:32,572 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:32,579 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:32,620 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:32,638 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:33,419 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.2669999999998254. input_tokens=655, output_tokens=0
+13:25:33,437 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.2850000000034925. input_tokens=560, output_tokens=0
+13:25:33,451 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.297999999995227. input_tokens=731, output_tokens=0
+13:25:33,473 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.3220000000001164. input_tokens=1015, output_tokens=0
+13:25:33,498 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.344999999993888. input_tokens=720, output_tokens=0
+13:25:33,821 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:33,844 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:33,846 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:33,847 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:33,856 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:34,162 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.690999999998894. input_tokens=364, output_tokens=0
+13:25:34,188 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7189999999973224. input_tokens=517, output_tokens=0
+13:25:34,203 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7200000000011642. input_tokens=543, output_tokens=0
+13:25:34,215 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7300000000032014. input_tokens=506, output_tokens=0
+13:25:34,226 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7180000000007567. input_tokens=610, output_tokens=0
+13:25:34,597 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:34,602 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:34,606 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:34,613 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:34,619 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:34,894 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6440000000002328. input_tokens=462, output_tokens=0
+13:25:34,918 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6710000000020955. input_tokens=719, output_tokens=0
+13:25:34,934 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6860000000015134. input_tokens=595, output_tokens=0
+13:25:34,946 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6990000000005239. input_tokens=551, output_tokens=0
+13:25:34,958 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7089999999952852. input_tokens=537, output_tokens=0
+13:25:35,327 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:35,334 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:35,336 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:35,345 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:35,349 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:35,688 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.713000000003376. input_tokens=454, output_tokens=0
+13:25:35,706 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7290000000066357. input_tokens=510, output_tokens=0
+13:25:35,719 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7370000000009895. input_tokens=538, output_tokens=0
+13:25:35,730 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.7540000000008149. input_tokens=572, output_tokens=0
+13:25:35,740 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.761000000005879. input_tokens=421, output_tokens=0
+13:25:36,109 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:36,114 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:36,129 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:36,133 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:36,410 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6509999999980209. input_tokens=436, output_tokens=0
+13:25:36,433 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6730000000025029. input_tokens=346, output_tokens=0
+13:25:36,445 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6849999999976717. input_tokens=334, output_tokens=0
+13:25:36,458 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 0.6970000000001164. input_tokens=380, output_tokens=0
+13:25:36,484 datashaper.workflow.workflow INFO executing verb drop
+13:25:36,494 datashaper.workflow.workflow INFO executing verb filter
+13:25:36,509 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+13:25:36,735 graphrag.index.run INFO Running workflow: create_final_nodes...
+13:25:36,735 graphrag.index.run INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+13:25:36,735 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+13:25:36,790 datashaper.workflow.workflow INFO executing verb layout_graph
+13:25:39,744 datashaper.workflow.workflow INFO executing verb unpack_graph
+13:25:39,770 datashaper.workflow.workflow INFO executing verb unpack_graph
+13:25:39,796 datashaper.workflow.workflow INFO executing verb filter
+13:25:39,811 datashaper.workflow.workflow INFO executing verb drop
+13:25:39,817 datashaper.workflow.workflow INFO executing verb select
+13:25:39,822 datashaper.workflow.workflow INFO executing verb snapshot
+13:25:39,829 datashaper.workflow.workflow INFO executing verb rename
+13:25:39,834 datashaper.workflow.workflow INFO executing verb join
+13:25:39,844 datashaper.workflow.workflow INFO executing verb convert
+13:25:39,864 datashaper.workflow.workflow INFO executing verb rename
+13:25:39,866 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+13:25:40,4 graphrag.index.run INFO Running workflow: create_final_communities...
+13:25:40,4 graphrag.index.run INFO dependencies for create_final_communities: ['create_base_entity_graph']
+13:25:40,4 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+13:25:40,32 datashaper.workflow.workflow INFO executing verb unpack_graph
+13:25:40,58 datashaper.workflow.workflow INFO executing verb unpack_graph
+13:25:40,84 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:25:40,93 datashaper.workflow.workflow INFO executing verb join
+13:25:40,103 datashaper.workflow.workflow INFO executing verb join
+13:25:40,112 datashaper.workflow.workflow INFO executing verb concat
+13:25:40,119 datashaper.workflow.workflow INFO executing verb filter
+13:25:40,149 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:25:40,158 datashaper.workflow.workflow INFO executing verb join
+13:25:40,167 datashaper.workflow.workflow INFO executing verb filter
+13:25:40,183 datashaper.workflow.workflow INFO executing verb fill
+13:25:40,190 datashaper.workflow.workflow INFO executing verb merge
+13:25:40,200 datashaper.workflow.workflow INFO executing verb copy
+13:25:40,207 datashaper.workflow.workflow INFO executing verb select
+13:25:40,209 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+13:25:40,331 graphrag.index.run INFO Running workflow: join_text_units_to_entity_ids...
+13:25:40,332 graphrag.index.run INFO dependencies for join_text_units_to_entity_ids: ['create_final_entities']
+13:25:40,332 graphrag.index.run INFO read table from storage: create_final_entities.parquet
+13:25:40,360 datashaper.workflow.workflow INFO executing verb select
+13:25:40,368 datashaper.workflow.workflow INFO executing verb unroll
+13:25:40,376 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:25:40,378 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_entity_ids.parquet
+13:25:40,490 graphrag.index.run INFO Running workflow: create_final_relationships...
+13:25:40,490 graphrag.index.run INFO dependencies for create_final_relationships: ['create_final_nodes', 'create_base_entity_graph']
+13:25:40,490 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+13:25:40,502 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+13:25:40,533 datashaper.workflow.workflow INFO executing verb unpack_graph
+13:25:40,570 datashaper.workflow.workflow INFO executing verb filter
+13:25:40,591 datashaper.workflow.workflow INFO executing verb rename
+13:25:40,599 datashaper.workflow.workflow INFO executing verb filter
+13:25:40,630 datashaper.workflow.workflow INFO executing verb drop
+13:25:40,641 datashaper.workflow.workflow INFO executing verb compute_edge_combined_degree
+13:25:40,654 datashaper.workflow.workflow INFO executing verb convert
+13:25:40,673 datashaper.workflow.workflow INFO executing verb convert
+13:25:40,675 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+13:25:40,796 graphrag.index.run INFO Running workflow: join_text_units_to_relationship_ids...
+13:25:40,796 graphrag.index.run INFO dependencies for join_text_units_to_relationship_ids: ['create_final_relationships']
+13:25:40,797 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+13:25:40,818 datashaper.workflow.workflow INFO executing verb select
+13:25:40,827 datashaper.workflow.workflow INFO executing verb unroll
+13:25:40,839 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:25:40,849 datashaper.workflow.workflow INFO executing verb select
+13:25:40,851 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_relationship_ids.parquet
+13:25:40,964 graphrag.index.run INFO Running workflow: create_final_community_reports...
+13:25:40,964 graphrag.index.run INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_nodes']
+13:25:40,965 graphrag.index.run INFO read table from storage: create_final_relationships.parquet
+13:25:40,967 graphrag.index.run INFO read table from storage: create_final_nodes.parquet
+13:25:40,996 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+13:25:41,10 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+13:25:41,22 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+13:25:41,34 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+13:25:41,34 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=1 => 382
+13:25:41,69 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 382
+13:25:41,100 datashaper.workflow.workflow INFO executing verb create_community_reports
+13:25:47,51 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:47,53 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.946000000003551. input_tokens=2043, output_tokens=542
+13:25:47,459 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:47,460 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.350999999995111. input_tokens=1671, output_tokens=873
+13:25:47,460 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:47,461 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.349999999998545. input_tokens=1785, output_tokens=798
+13:25:48,185 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:48,188 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 7.072000000000116. input_tokens=2131, output_tokens=790
+13:25:48,294 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:48,295 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 7.1820000000006985. input_tokens=1759, output_tokens=946
+13:25:51,425 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:51,430 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 3.951999999997497. input_tokens=1575, output_tokens=539
+13:25:52,835 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:52,836 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.753000000004249. input_tokens=1902, output_tokens=742
+13:25:53,617 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:53,618 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.30000000000291. input_tokens=2491, output_tokens=767
+13:25:54,832 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:54,835 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 7.359999999993306. input_tokens=2377, output_tokens=803
+13:25:54,918 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:54,919 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.698000000003958. input_tokens=3247, output_tokens=861
+13:25:58,167 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:58,172 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.7150000000037835. input_tokens=2227, output_tokens=835
+13:25:58,542 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:58,546 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.914000000004307. input_tokens=1602, output_tokens=692
+13:25:59,337 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:25:59,340 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.489999999997963. input_tokens=2245, output_tokens=821
+13:26:00,977 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:00,979 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.056000000004133. input_tokens=1743, output_tokens=735
+13:26:01,387 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:01,400 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.529999999998836. input_tokens=2447, output_tokens=873
+13:26:03,134 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:03,138 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.934999999997672. input_tokens=1662, output_tokens=767
+13:26:04,161 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:04,165 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.5899999999965075. input_tokens=1682, output_tokens=784
+13:26:04,566 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:04,569 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.197999999996682. input_tokens=2201, output_tokens=849
+13:26:06,97 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:06,100 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.0570000000006985. input_tokens=1859, output_tokens=766
+13:26:07,60 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:07,64 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 3.879000000000815. input_tokens=1602, output_tokens=581
+13:26:08,43 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:08,45 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.582000000002154. input_tokens=1757, output_tokens=748
+13:26:09,512 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:09,514 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.917999999997846. input_tokens=1672, output_tokens=814
+13:26:09,849 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:09,859 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.6450000000040745. input_tokens=1842, output_tokens=731
+13:26:10,899 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:10,902 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.773000000001048. input_tokens=1671, output_tokens=692
+13:26:12,346 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:12,350 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.254999999997381. input_tokens=1673, output_tokens=667
+13:26:14,291 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:14,295 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.22099999999773. input_tokens=1824, output_tokens=995
+13:26:14,906 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:14,911 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.371999999995751. input_tokens=2030, output_tokens=826
+13:26:14,938 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:14,939 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.00800000000163. input_tokens=1599, output_tokens=586
+13:26:15,927 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:15,930 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.055000000000291. input_tokens=1586, output_tokens=725
+13:26:20,690 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:20,692 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.711999999999534. input_tokens=1646, output_tokens=720
+13:26:21,241 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:21,245 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.27100000000064. input_tokens=1826, output_tokens=673
+13:26:21,315 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:21,317 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.332999999998719. input_tokens=3498, output_tokens=751
+13:26:21,747 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:21,750 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.779999999998836. input_tokens=2956, output_tokens=688
+13:26:22,583 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:22,587 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.608000000000175. input_tokens=4914, output_tokens=852
+13:26:27,93 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:27,96 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.381000000001222. input_tokens=4748, output_tokens=888
+13:26:27,520 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:27,522 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.746999999995751. input_tokens=2589, output_tokens=697
+13:26:27,637 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:27,639 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.31699999999546. input_tokens=3008, output_tokens=761
+13:26:29,444 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:29,445 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 8.169999999998254. input_tokens=2433, output_tokens=972
+13:26:29,593 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:29,595 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 6.9760000000023865. input_tokens=3158, output_tokens=849
+13:26:35,221 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:35,224 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 7.677999999999884. input_tokens=2991, output_tokens=920
+13:26:37,251 httpx INFO HTTP Request: POST https://openai-hu-non-product-test.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview "HTTP/1.1 200 OK"
+13:26:37,252 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 10.131000000001222. input_tokens=2491, output_tokens=897
+13:26:37,277 datashaper.workflow.workflow INFO executing verb window
+13:26:37,279 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+13:26:37,508 graphrag.index.run INFO Running workflow: create_final_text_units...
+13:26:37,508 graphrag.index.run INFO dependencies for create_final_text_units: ['create_base_text_units', 'join_text_units_to_entity_ids', 'join_text_units_to_relationship_ids']
+13:26:37,508 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+13:26:37,511 graphrag.index.run INFO read table from storage: join_text_units_to_entity_ids.parquet
+13:26:37,513 graphrag.index.run INFO read table from storage: join_text_units_to_relationship_ids.parquet
+13:26:37,534 datashaper.workflow.workflow INFO executing verb select
+13:26:37,544 datashaper.workflow.workflow INFO executing verb rename
+13:26:37,554 datashaper.workflow.workflow INFO executing verb join
+13:26:37,566 datashaper.workflow.workflow INFO executing verb join
+13:26:37,578 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:26:37,590 datashaper.workflow.workflow INFO executing verb select
+13:26:37,591 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+13:26:37,709 graphrag.index.run INFO Running workflow: create_base_documents...
+13:26:37,709 graphrag.index.run INFO dependencies for create_base_documents: ['create_final_text_units']
+13:26:37,709 graphrag.index.run INFO read table from storage: create_final_text_units.parquet
+13:26:37,733 datashaper.workflow.workflow INFO executing verb unroll
+13:26:37,744 datashaper.workflow.workflow INFO executing verb select
+13:26:37,754 datashaper.workflow.workflow INFO executing verb rename
+13:26:37,765 datashaper.workflow.workflow INFO executing verb join
+13:26:37,777 datashaper.workflow.workflow INFO executing verb aggregate_override
+13:26:37,788 datashaper.workflow.workflow INFO executing verb join
+13:26:37,802 datashaper.workflow.workflow INFO executing verb rename
+13:26:37,813 datashaper.workflow.workflow INFO executing verb convert
+13:26:37,838 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+13:26:37,962 graphrag.index.run INFO Running workflow: create_final_documents...
+13:26:37,963 graphrag.index.run INFO dependencies for create_final_documents: ['create_base_documents']
+13:26:37,963 graphrag.index.run INFO read table from storage: create_base_documents.parquet
+13:26:37,987 datashaper.workflow.workflow INFO executing verb rename
+13:26:37,988 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
