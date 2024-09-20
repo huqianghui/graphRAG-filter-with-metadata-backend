@@ -12,54 +12,39 @@ import pandas as pd
 import tiktoken
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse, StreamingResponse
-
 # GraphRAG related imports
-from graphrag.query.context_builder.entity_extraction import EntityVectorStoreKey
-from graphrag.query.indexer_adapters import (
-    read_indexer_covariates,
-    read_indexer_entities,
-    read_indexer_relationships,
-    read_indexer_reports,
-    read_indexer_text_units,
-)
+from graphrag.query.context_builder.entity_extraction import \
+    EntityVectorStoreKey
+from graphrag.query.indexer_adapters import (read_indexer_covariates,
+                                             read_indexer_entities,
+                                             read_indexer_relationships,
+                                             read_indexer_reports,
+                                             read_indexer_text_units)
 from graphrag.query.input.loaders.dfs import store_entity_semantic_embeddings
 from graphrag.query.llm.oai.chat_openai import ChatOpenAI
 from graphrag.query.llm.oai.embedding import OpenAIEmbedding
 from graphrag.query.llm.oai.typing import OpenaiApiType
 from graphrag.query.question_gen.local_gen import LocalQuestionGen
-from graphrag.query.structured_search.global_search.community_context import (
-    GlobalCommunityContext,
-)
+from graphrag.query.structured_search.global_search.community_context import \
+    GlobalCommunityContext
 from graphrag.query.structured_search.global_search.search import GlobalSearch
-from graphrag.query.structured_search.local_search.mixed_context import (
-    LocalSearchMixedContext,
-)
+from graphrag.query.structured_search.local_search.mixed_context import \
+    LocalSearchMixedContext
 from graphrag.query.structured_search.local_search.search import LocalSearch
 from graphrag.vector_stores.lancedb import LanceDBVectorStore
 from promptflow.tracing import start_trace, trace
 from pydantic import BaseModel, Field
 from transformers.agents import ReactJsonAgent, Tool
 
-from appConfig import (
-    COMMUNITY_LEVEL,
-    COMMUNITY_REPORT_TABLE,
-    COMMUNITY_TABLE,
-    COVARIATE_TABLE,
-    ENTITY_EMBEDDING_TABLE,
-    ENTITY_TABLE,
-    INPUT_DIR,
-    LANCEDB_URI,
-    PORT,
-    RELATIONSHIP_TABLE,
-    TEXT_UNIT_TABLE,
-)
-from customizedLocalSearchFactory import setup_search_engines_by_fileNameParttern
+from appConfig import (COMMUNITY_LEVEL, COMMUNITY_REPORT_TABLE,
+                       COMMUNITY_TABLE, COVARIATE_TABLE,
+                       ENTITY_EMBEDDING_TABLE, ENTITY_TABLE, INPUT_DIR,
+                       LANCEDB_URI, PORT, RELATIONSHIP_TABLE, TEXT_UNIT_TABLE)
+from customizedLocalSearchFactory import \
+    setup_search_engines_by_fileNameParttern
 from engine import AzureOpenAIEngine
-from retrieverTool import (
-    BaselineRagRetrieverTool,
-    GraphGlobalRetrieverTool,
-    GraphLocalRetrieverTool,
-)
+from retrieverTool import (BaselineRagRetrieverTool, GraphGlobalRetrieverTool,
+                           GraphLocalRetrieverTool)
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -330,20 +315,21 @@ def format_response(response):
 async def baseline_rag_search(prompt: str):
     import os
 
-    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    from azure.identity import (DefaultAzureCredential,
+                                get_bearer_token_provider)
     from openai import AzureOpenAI
 
-    endpoint = os.getenv("ENDPOINT_URL", "https://openai-hu-non-product-test.openai.azure.com/")
+    endpoint = os.getenv("ENDPOINT_URL", "https://XXXXX.openai.azure.com/")
     deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4o")
-    search_endpoint = os.getenv("SEARCH_ENDPOINT", "https://ai-search-hu-west-us-3.search.windows.net")
-    search_key = os.getenv("SEARCH_KEY", "je3yK1ohrjF2QYUZ0w4jv3GUiKl3rAExNOFwircuHhAzSeB0dHTB")
+    search_endpoint = os.getenv("SEARCH_ENDPOINT", "https://XXXXX.search.windows.net")
+    search_key = os.getenv("SEARCH_KEY", "XXXXX")
     search_index = os.getenv("SEARCH_INDEX_NAME", "baseline-rag-index01")
 
 
         
     client = AzureOpenAI(
         azure_endpoint=endpoint,
-        api_key="41433befdf824b348136ef86bb897073",
+        api_key="XXXXX",
         api_version="2024-05-01-preview",
     )
         
