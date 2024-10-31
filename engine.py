@@ -11,7 +11,7 @@ class AzureOpenAIEngine:
         self.client = AzureOpenAI(
             azure_endpoint="https://openai-hu-non-product-test.openai.azure.com/",
             azure_deployment=deployment_name,
-            api_key="41433befdf824b348136ef86bb897073"#os.getenv("OPENAI_API_KEY"),
+            api_key="XXXXX"#os.getenv("OPENAI_API_KEY"),
         )
 
     def __call__(self, messages, stop_sequences=[]):
